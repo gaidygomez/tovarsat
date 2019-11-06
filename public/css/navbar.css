@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+/*.navbar-default.scrolled{
+  background: rgba(80,186,208,0.9);
+}*/
+
+a.nav-links{
+	color: #FFFF;
+	text-decoration: none;
+	font-family: 'Roboto', sans-serif;
+	padding: 10px;
+	display: block;
+	transition: all 0.2s ease-in-out 0s;
+  border-width: 2px;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-decoration: none;
+  word-spacing: 1px;
+  text-shadow:0px 3px 4px rgba(0,0,0,0.4),
+              0px 8px 13px rgba(0,0,0,0.1),
+              0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.nav-links::after {
+	transform: scale(0, 1);
+	transform-origin: center center 0px;
+	transition: all .25s ease-in-out;
+	border-bottom: 3px solid #FFF;
+	content: "";
+	display: block;
+	height: 1px;
+	left: 0px;
+	margin-top: -3px;
+	position: relative;
+	top: 3px;
+	width: 100%;
+	color: #FFF;
+}
+.nav-links:hover::after {
+	transform: scale(1, 1);
+}
+
+li.nav-item {
+	padding-right: 20px;
+	padding-left: 15px;
+}
+
+/* Estilos para el menú resposive*/
+@media (max-width: 40em) {
+	.navbar-collapse {
+    	background-color: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 1;
+        font-size: 30px;
+        overflow-x: hidden;
+        transition: all 0.2s ease-out;
+	}
+	.navbar-collapse .navbar-nav {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+	}
+	.navbar-toggler {
+        z-index: 2;
+        color: #FFF;
+    }
+}
+
+/*------------ Navbar effect ------*/
+#navbar {
+  background-color: rgba( 26, 111, 157, 0.40); /* Black background color */
+  position: fixed; /* Make it stick/fixed */
+  top: 0; /* Stay on top */
+  width: 100%; /* Full width */
+  transition: top 0.3s; /* Transition effect when sliding down (and up) */
+  z-index: 100;
+  height: 60px;
+}
+
+/* Style the navbar links */
+/*#navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+#navbar a:hover {
+  background-color: transparent;
+  color: white;
+}*/
