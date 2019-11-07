@@ -13,8 +13,21 @@
     <link rel="icon" type="png" href="{{ asset('img/favicon-96x96.png') }}">
   </head>
   <body>
+      <header>
+        <div style=" padding: 1.2rem;">
+            <a href="{{ route('inicio') }}">
+                <img src="{{ asset('img/logo.png') }}" width="140" height="40">
+            </a>
+        </div>
+      </header>
     <div class="s130">
-      <form method="POST" action="{{ route('merida_search')}}">
+      <form method="POST" action="{{ route('tovar_post')}}">
+        @csrf
+         @if (session()->has('alert'))
+            <div class="alert" role="alert">
+              <strong>¡Lo sentimos!</strong> {{ session()->get('alert') }} 
+            </div>
+          @endif
         <div class="inner-form">
           <div class="input-field first-wrap">
             <div class="svg-wrapper">
@@ -22,10 +35,10 @@
                 <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
               </svg>
             </div>
-            <input id="search" type="text" placeholder="What are you looking for?" />
+            <input name="ci" id="search" type="text" placeholder="Ingrese su cédula en el siguiente formato: 10123456" />
           </div>
           <div class="input-field second-wrap">
-            <button class="btn-search" type="button">SEARCH</button>
+            <button class="btn-search" type="submit">BUSCAR</button>
           </div>
         </div>
       </form>

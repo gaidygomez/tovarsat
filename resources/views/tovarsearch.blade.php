@@ -24,9 +24,8 @@
       <form method="POST" action="{{ route('tovar_post')}}">
         @csrf
          @if (session()->has('alert'))
-            <div role="alert">
-              <strong>¡Muchas Gracias!</strong> {{ session()->get('alert') }} 
-              <!--<button type="button" data-dismiss="alert" aria-hidden="true"><i class="fas fa-times"></i></button>-->
+            <div class="alert" role="alert">
+              <strong>¡Lo sentimos!</strong> {{ session()->get('alert') }} 
             </div>
           @endif
         <div class="inner-form">
@@ -45,5 +44,5 @@
       </form>
     </div>
     <script src="{{ asset('se/js/extention/choices.js') }}"></script>
-  </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+  </body>
 </html>

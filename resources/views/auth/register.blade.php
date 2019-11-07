@@ -85,7 +85,11 @@
                     </form>
                 </div>
             @else
-                <p>Debe buscar su cédula</p>            
+                <div class="card-body m-auto">
+                    <div class="alert alert-warning" role="alert">
+                        <p style="color:black;">Debe <a href="{{ route('options') }}">seleccionar </a> primero su oficina más cercana y luego buscar su Cédula.</p>            
+                    </div>
+                </div>
             @endif
 
             </div>
