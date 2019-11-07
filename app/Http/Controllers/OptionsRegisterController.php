@@ -34,7 +34,7 @@ class OptionsRegisterController extends Controller
             ->get();
 
         if (isset($user->first()->Cedula) == null) {
-            return back()->with('alert', 'mensaje de alerta.');
+            return back()->with('alert', 'Su cédula no se encuentra en nuestros registros.');
         } else {
             return redirect('register')
                 ->with(["ci" => $ci])

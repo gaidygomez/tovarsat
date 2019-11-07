@@ -28,10 +28,10 @@ Route::post('coor', 'SendMailController@coor')->name('coor');
 Route::get('speed', 'SpeedController@index')->name('speed');
 
 // Búsqueda de Clientes
-Route::get('tovar_search', 'OptionsRegisterController@tovarsearch')->name('tovar_search');
-Route::post('tovar_search', 'OptionsRegisterController@tovarsearchpost')->name('tovar_post');
-Route::get('merida_search', 'OptionsRegisterController@meridasearch')->name('merida_search');
-Route::post('merida_search', 'OptionsRegisterController@meridasearchpost')->name('merida_post');
+Route::get('tovar/search', 'OptionsRegisterController@tovarsearch')->name('tovar_search');
+Route::post('tovar/search', 'OptionsRegisterController@tovarsearchpost')->name('tovar_post');
+Route::get('merida/search', 'OptionsRegisterController@meridasearch')->name('merida_search');
+Route::post('merida/search', 'OptionsRegisterController@meridasearchpost')->name('merida_post');
 
 
 // Register Options

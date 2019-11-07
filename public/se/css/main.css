@@ -891,7 +891,7 @@ button {
   display: flex;
   -ms-flex-align: center;
       align-items: center;
-  background: #d9f1e3;
+  background: rgba(73, 140, 166, 0.15);
 }
 
 .s130 form .inner-form .input-field.first-wrap input {
@@ -923,19 +923,20 @@ button {
   height: 100%;
   width: 100%;
   white-space: nowrap;
-  font-size: 16px;
+  font-size: 22px;
   color: #fff;
   border: 0;
   cursor: pointer;
   position: relative;
   z-index: 0;
-  background: #00ad5f;
+  background: #004279;
   transition: all .2s ease-out, color .2s ease-out;
-  font-weight: 300;
+  font-weight: 600;
+  letter-spacing: 1.5px;
 }
 
 .s130 form .inner-form .input-field.second-wrap .btn-search:hover {
-  background: #009451;
+  background: #016EC9;
 }
 
 .s130 form .inner-form .input-field.second-wrap .btn-search:focus {
@@ -977,6 +978,17 @@ button {
   .s130 form .inner-form .input-field.second-wrap .btn-search {
     font-size: 13px;
   }
+}
+
+.alert{
+  margin: 1rem;
+  box-sizing: border-box;
+  padding-left: 1.5rem;
+  background: rgba(255, 255, 109, 0.45);
+  width: 70%;
+  height: 40px;
+  border-radius: 12px;
+  padding-top: 0.6rem;
 }
 
 /*# sourceMappingURL=Searchs_130.css.map */
