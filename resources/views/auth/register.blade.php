@@ -87,7 +87,7 @@
             @else
                 <div class="card-body m-auto">
                     <div class="alert alert-warning" role="alert">
-                        <p style="color:black;">Debe <a href="{{ route('options') }}">seleccionar </a> primero su oficina más cercana y luego buscar su Cédula.</p>            
+                        <p style="color:black;">Debe <a href="{{ route('options') }}">seleccionar primero su oficina más cercana </a> y luego buscar su Cédula.</p>            
                     </div>
                 </div>
             @endif

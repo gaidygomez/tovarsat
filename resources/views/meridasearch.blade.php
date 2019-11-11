@@ -21,7 +21,7 @@
         </div>
       </header>
     <div class="s130">
-      <form method="POST" action="{{ route('tovar_post')}}">
+      <form method="POST" action="{{ route('merida_post')}}">
         @csrf
          @if (session()->has('alert'))
             <div class="alert" role="alert">
