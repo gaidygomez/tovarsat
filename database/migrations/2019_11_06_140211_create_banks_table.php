@@ -13,9 +13,9 @@ class CreateBanksTable extends Migration
      */
     public function up()
     {
-        Schema::connection('pgsql')->create('pg_banks', function (Blueprint $table) {
+        Schema::connection('pgsql')->create('banks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('count_number');
+            $table->integer('BRN');
             $table->string('name');
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ class CreateBanksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pg_banks');
+        Schema::dropIfExists('banks');
     }
 }

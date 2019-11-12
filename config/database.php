@@ -94,10 +94,10 @@ return [
         'avatar' => [
             'driver' => 'sqlsrv',
             'url' => env('DATABASE_URL'),
-            'host' => env('AVATAR_HOST', '172.16.10.243'),
+            'host' => env('AVATAR_HOST', 'localhost'),
             'port' => env('AVATAR_PORT', '1433'),
-            'database' => env('AVATAR_DATABASE', 'avatar'),
-            'username' => env('AVATAR_USERNAME', 'avatar'),
+            'database' => env('AVATAR_DATABASE', 'forge'),
+            'username' => env('AVATAR_USERNAME', 'forge'),
             'password' => env('AVATAR_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',

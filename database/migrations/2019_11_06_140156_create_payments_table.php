@@ -13,7 +13,7 @@ class CreatePaymentsTable extends Migration
      */
     public function up()
     {
-        Schema::connection('pgsql')->create('pg_payments', function (Blueprint $table) {
+        Schema::connection('pgsql')->create('payments', function (Blueprint $table) {
             $table->increments('id');
             $table->float('amount')->unsigned();
             $table->string('bank');
@@ -30,6 +30,6 @@ class CreatePaymentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pg_payments');
+        Schema::dropIfExists('payments');
     }
 }

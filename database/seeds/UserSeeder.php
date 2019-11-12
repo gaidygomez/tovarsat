@@ -12,7 +12,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('pg_users')->insert([
+        DB::table('users')->insert([
             'name' => 'Administrador',
             'email' => 'admin@tovarsat.com.ve',
             'password' => bcrypt('adminadmin'),
@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => Carbon::now()
         ]);
 
-        DB::table('pg_users')->insert([
+        DB::table('users')->insert([
             'name' => 'Usuario',
             'email' => 'user@tovarsat.com.ve',
             'password' => bcrypt('useruser'),

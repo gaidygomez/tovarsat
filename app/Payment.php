@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Payment extends Model
 {
-    protected $connection = "pgsql";
+    protected $connection = 'pgsql';
 
-    protected $table = "pg_payments";
+    protected $table = "payments";
 }

@@ -13,7 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::connection('pgsql')->create('pg_users', function (Blueprint $table) {
+        Schema::connection('pgsql')->create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
@@ -33,6 +33,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pg_users');
+        Schema::dropIfExists('users');
     }
 }

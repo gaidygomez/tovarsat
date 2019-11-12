@@ -11,9 +11,9 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
-    protected $connection = "pgsql";
+    protected $connection = 'pgsql';
 
-    protected $table = "pg_users";
+    protected $table = "users";
 
     /**
      * The attributes that are mass assignable.
