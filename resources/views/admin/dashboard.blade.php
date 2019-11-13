@@ -107,23 +107,12 @@ desired effect
                   {{auth()->user()->name}}
                 </p>
               </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                <!--<div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>-->
-                <!-- /.row -->
-              </li>
               <!-- Menu Footer-->
               <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                </div>
+
                 <div class="pull-right">
                   <a href="#" class="btn btn-default btn-flat" 
                   onclick="event.preventDefault();
@@ -133,6 +122,7 @@ desired effect
                     @csrf
                   </form>
                 </div>
+
               </li>
             </ul>
           </li>
@@ -176,8 +166,8 @@ desired effect
         <!-- Optionally, you can add icons to the links -->
           <li><a href="{{ route('home') }}"><i class="fas fa-home"></i><span style="padding-left: .75rem;">Inicio</span></a></li>
           <li><a href="{{ route('register') }}"><i class="fas fa-user-plus"></i><span style="padding-left: .6rem;">Registrar Usuario</span></a></li>
-        <li><a href="{{ route('listuser') }}"><i class="fas fa-address-book"></i><span style="padding-left: 1.2rem;">Listar Clientes</span></a></li>
-        <li><a href="#"><i class="fas fa-donate"></i><span style=" padding-left: 1rem;">Reportes de pagos</span></a></li>
+          <li><a href="{{ route('listuser') }}"><i class="fas fa-address-book"></i><span style="padding-left: 1.2rem;">Listar Clientes</span></a></li>
+          <li><a href="{{ route('debt') }}"><i class="fas fa-donate"></i><span style=" padding-left: 1rem;">Consultar Saldo</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -198,6 +188,8 @@ desired effect
      @yield('content')
 
      @yield('listuser')
+
+     @yield('saldo')
 
     </section>
     <!-- /.content -->

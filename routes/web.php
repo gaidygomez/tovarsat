@@ -29,9 +29,9 @@ Route::get('speed', 'SpeedController@index')->name('speed');
 
 // Búsqueda de Clientes
 Route::get('tovar/search', 'OptionsRegisterController@tovarsearch')->name('tovar_search');
-Route::post('tovar/search', 'OptionsRegisterController@tovarsearchpost')->name('tovar_post');
+Route::post('tovar/search', 'OptionsRegisterController@tovarpost')->name('tovar_post');
 Route::get('merida/search', 'OptionsRegisterController@meridasearch')->name('merida_search');
-Route::post('merida/search', 'OptionsRegisterController@meridasearchpost')->name('merida_post');
+Route::post('merida/search', 'OptionsRegisterController@meridapost')->name('merida_post');
 
 
 // Register Options
@@ -75,3 +75,7 @@ Route::group(['middleware' => 'admin'], function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('deuda', 'UserOptionsController@debt')->name('debt');
+});
