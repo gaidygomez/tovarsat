@@ -15,6 +15,7 @@ class CreateBanksTable extends Migration
     {
         Schema::connection('pgsql')->create('banks', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->increments('bank_id');
             $table->integer('BRN');
             $table->string('name');
             $table->timestamps();

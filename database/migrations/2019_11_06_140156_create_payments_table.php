@@ -15,6 +15,7 @@ class CreatePaymentsTable extends Migration
     {
         Schema::connection('pgsql')->create('payments', function (Blueprint $table) {
             $table->increments('id');
+            $table->increments('payment_id');
             $table->float('amount')->unsigned();
             $table->string('bank');
             $table->integer('BRN')->unique();

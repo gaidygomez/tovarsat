@@ -20,14 +20,5 @@ class UserSeeder extends Seeder
             'role' => 0,
             'email_verified_at' => Carbon::now()
         ]);
-
-        DB::table('users')->insert([
-            'name' => 'Usuario',
-            'email' => 'user@tovarsat.com.ve',
-            'password' => bcrypt('useruser'),
-            'ci' => '18310514',
-            'role' => 1,
-            'email_verified_at' => Carbon::now()
-        ]);
     }
 }

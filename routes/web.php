@@ -78,4 +78,11 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('deuda', 'UserOptionsController@debt')->name('debt');
+    Route::get('pagar', 'UserOptionsController@pay')->name('pay');
+    Route::get('provincial', 'BanksController@bp')->name('bp');
+    Route::get('mercantil/merida', 'BanksController@mm')->name('mm');
+    Route::get('mercantil/tovar', 'BanksController@mt')->name('mt');
+    Route::get('venezuela', 'BanksController@bdv')->name('bdv');
+    Route::get('banesco', 'BanksController@banesco')->name('banesco');
+    Route::get('sofitasa', 'BanksController@bs')->name('bs');
 });

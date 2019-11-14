@@ -64,4 +64,8 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->role == 1;
     }
+
+    public function payments(){
+        return $this->hasMany('App\Payment');
+    }
 }
