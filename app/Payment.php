@@ -10,11 +10,16 @@ class Payment extends Model
 
     protected $table = "payments";
 
-    public function users(){
-        $this->belongsTo('App\User');
+    protected $fillable = [
+        'amount', 'brn', 'bank', 'comment', 'user_id', 'bank_id'
+    ];
+
+    public function user(){
+        $this->belongsTo(User::class);
     }
 
-    public function banks(){
-        $this->belongsToMany('App\Bank');
+    public function bank()
+    {
+        return $this->belongsTo(Bank::class);
     }
 }

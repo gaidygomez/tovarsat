@@ -23,11 +23,15 @@
     <div class="s130">
       <form method="POST" action="{{ route('merida_post')}}">
         @csrf
-         @if (session()->has('alert'))
-            <div class="alert" role="alert">
-              <strong>¡Lo sentimos!</strong> {{ session()->get('alert') }} 
-            </div>
-          @endif
+        @if(session()->has('alert'))
+          <div class="alert" role="alert">
+            <strong>¡Lo sentimos!</strong> {{ session()->get('alert') }} 
+          </div>
+        @elseif(session()->has('ci'))
+          <div class="alerta-ci" role="alert">
+            <strong>¡Lo sentimos!</strong> {{ session()->get('ci')}}
+          </div>
+        @endif
         <div class="inner-form">
           <div class="input-field first-wrap">
             <div class="svg-wrapper">

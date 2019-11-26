@@ -15,7 +15,6 @@ class CreateUsersTable extends Migration
     {
         Schema::connection('pgsql')->create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->increments('user_id');
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

@@ -10,7 +10,11 @@ class Bank extends Model
 
     protected $table = "banks";
 
+    protected $fillable = [
+        'BRN', 'name'
+    ];
+
     public function payments(){
-        $this->belongsToMany('App\Payment');
+        $this->hasMany(Payment::class, 'bank_id');
     }
 }

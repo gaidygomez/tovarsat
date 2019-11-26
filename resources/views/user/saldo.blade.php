@@ -101,7 +101,7 @@
                                 <dd>Sr(a) {{ $saldo_merida[0]->Nombre1. " ". $saldo_merida[0]->Apellido1 }}</dd>
                                 <dd>C.I: {{ $saldo_merida[0]->Cedula }} </dd>
                                 <dd>Su número de contrato con nosotros es: {{ $saldo_merida[0]->numcuenta }} </dd>
-                                <dt>Hasta la fecha: {{ Carbon\Carbon::parse($saldo_merida[0]->notfching)->format('d/m/Y') }}</dt>
+                                <dt>Hasta la fecha: {{ Carbon\Carbon::parse($saldo_merida[0]->notfching)->format('d/M/Y') }}</dt>
                                 <dt>Su deuda acumulada con nosotros es de: {{ number_format($saldo_merida[0]->nottotmonto, 2, ',', '.') }} Bs. </dt>
                             </dl>
                         </div>

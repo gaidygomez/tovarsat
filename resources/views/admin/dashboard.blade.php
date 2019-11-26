@@ -19,19 +19,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/b7de1e60dc.js"></script>
 
+  <!-- Ajax -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
-  
-  <link rel="stylesheet" href="{{ asset('admin/bower_components/Ionicons/css/ionicons.css') }}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="{{ asset('admin/bower_components/Ionicons/css/ionicons.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('admin/dist/css/AdminLTE.css') }}">
   <!-- Datatables -->
-  <link rel="stylesheet" href="{{ asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.css"') }}">
+  <link rel="stylesheet" href="{{ asset('admin/bower_components/datatables/css/dataTables.bootstrap.css') }}">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="{{ asset('admin/dist/css/skins/skin-blue.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/alert.css') }}">
 
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -110,7 +112,7 @@ desired effect
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                  
                 </div>
 
                 <div class="pull-right">
@@ -173,6 +175,7 @@ desired effect
           @else
             <li><a href="{{ route('debt') }}"><i class="fas fa-donate"></i><span style=" padding-left: 1rem;">Consultar Saldo</span></a></li>
             <li><a href="{{ route('pay') }}"><i class="fa fa-money"></i><span style=" padding-left: 1rem;">Pago en Línea</span></a></li>
+            <li><a href="{{ route('history') }}"><i class="fa fa-history"></i><span style=" padding-left: 1rem;">Historicos de Pagos</span></a></li>
           @endif
       </ul>
       <!-- /.sidebar-menu -->
@@ -202,6 +205,12 @@ desired effect
      @yield('pagar')
 
      @yield('provincial')
+     
+     @yield('ppagos')
+
+     @yield('history')
+
+     @yield('invoice')
 
     </section>
     <!-- /.content -->
@@ -232,22 +241,19 @@ desired effect
 <script src="{{ asset('admin/bower_components/fastclick/lib/fastclick.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('admin/dist/js/demo.js') }}"></script>
-<!-- ChartJS -->
-<script src="{{ asset('admin/bower_components/chart.js/Chart.js') }}"></script>
 <!-- DataTables -->
 <script src="{{ asset('admin/bower_components/datatables.net/js/jquery.dataTables.js') }}"></script>
 <!-- SlimScroll -->
 <script src="{{ asset('admin/bower_components/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
-<!-- Page script -->
-
+<!-- page script -->
 <script>
   $(function () {
-    $('#example1').DataTable({
-      'paging'      : true,
+    $('#history').DataTable({
+      'paging'      : false,
       'lengthChange': true,
       'searching'   : true,
       'ordering'    : true,
-      'info'        : true,
+      'info'        : false,
       'autoWidth'   : true
     })
   })
