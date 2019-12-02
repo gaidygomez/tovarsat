@@ -21,6 +21,7 @@ class BankPostController extends Controller
             'brn' => $request[('brn')],
             'comment' => $request[('comment')],
             'file' => $request->file('file')->store('pagos'),
+            'date' => $request[('date')],
             'user_id' => $userId,
             'bank_id' => $bankId['id']
         ]);
@@ -40,6 +41,7 @@ class BankPostController extends Controller
             'brn' => $request[('brn')],
             'comment' => $request[('comment')],
             'file' => $request->file('file')->store('pagos'),
+            'date' => $request[('date')],
             'user_id' => $userId,
             'bank_id' => $bankId['id']
         ]);
@@ -58,6 +60,7 @@ class BankPostController extends Controller
             'brn' => $request[('brn')],
             'comment' => $request[('comment')],
             'file' => $request->file('file')->store('pagos'),
+            'date' => $request[('date')],
             'user_id' => $userId,
             'bank_id' => $bankId['id']
         ]);
@@ -76,6 +79,7 @@ class BankPostController extends Controller
             'brn' => $request[('brn')],
             'comment' => $request[('comment')],
             'file' => $request->file('file')->store('pagos'),
+            'date' => $request[('date')],
             'user_id' => $userId,
             'bank_id' => $bankId['id']
         ]);
@@ -94,6 +98,7 @@ class BankPostController extends Controller
             'brn' => $request[('brn')],
             'comment' => $request[('comment')],
             'file' => $request->file('file')->store('pagos'),
+            'date' => $request[('date')],
             'user_id' => $userId,
             'bank_id' => $bankId['id']
         ]);
@@ -112,6 +117,7 @@ class BankPostController extends Controller
             'brn' => $request[('brn')],
             'comment' => $request[('comment')],
             'file' => $request->file('file')->store('pagos'),
+            'date' => $request[('date')],
             'user_id' => $userId,
             'bank_id' => $bankId['id']
         ]);

@@ -27,6 +27,7 @@ class BanksFormRequest extends FormRequest
             'amount' => 'required|numeric',
             'brn' => 'required|numeric|digits_between:7,13|unique:payments',
             'bank' => 'required|numeric|digits:20',
+            'date' => 'required',
             'file' => 'required|mimes:jpeg,png,pdf'
         ];
     }
@@ -42,6 +43,7 @@ class BanksFormRequest extends FormRequest
             'brn.unique' => 'Esta referencia ya está en uso',
             'bank.required' => 'Este campo es requerido',
             'bank.numeric' => 'Este campo debe ser un número',
+            'date.required' => 'Este campo es requerido',
             'file.required' => 'Este campo es requerido',
         ];
     }

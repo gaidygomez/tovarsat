@@ -39,7 +39,24 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-           brn     </div>
+                </div>
+                <div class="form-group">
+                    <label>Fecha en la que hizo la transferencia:</label>
+
+                    <div class="input-group date">
+                        <div class="input-group-addon" style="width: 40px">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="date" name="date" class="form-control pull-right" id="datepicker" style="padding: 0px; padding-left: 10px;">
+                    </div>
+                    @error('date')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    <!-- /.input group -->
+                </div>
+                <!-- /.form group -->
                 <div class="form-group">
                     <label for="exampleInputPassword1">Puede agregar su comentario </label>
                     <input type="text" name="comment" class="form-control" placeholder="Puede comentarnos algo sobre su transferencia">

@@ -50,6 +50,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main content -->
 <section class="invoice">
 <!-- title row -->
+  <div class="callout" style="margin-bottom: 3!important;">
+    <h4>Estimado suscriptor:</h4>
+    
+    <strong>Esta página es solo referencial</strong>, no tiene válidez como factura. Solo es información que se le proporciona para su uso.
+  </div>
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">

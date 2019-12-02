@@ -3,8 +3,8 @@
 @section('invoice')
 <div class="pad margin no-print">
   <div class="callout callout-info" style="margin-bottom: 0!important;">
-    <h4><i class="fa fa-info"></i> Note:</h4>
-    This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.
+    <h4><i class="fa fa-info"></i> Estimado suscriptor:</h4>
+    <strong>Esta página es solo referencial</strong>, no tiene válidez como factura. Solo es información que se le proporciona para su uso.
   </div>
 </div>
 
@@ -46,7 +46,7 @@
             <thead>
             <tr>
               <th>Cantidad</th>
-              <th>Observación</th>
+              <th>Referencia Bancaria</th>
               <th>Banco al que Transfirió</th>
               <th>Fecha de Operación</th>
               <th>Monto</th>
@@ -55,7 +55,7 @@
             <tbody>
             <tr>
               <td>1</td>
-              <td>{{$invoice->comment}} </td>
+              <td>{{$invoice->brn}} </td>
               <td>{{$invoice->bank}}</td>
               <td>{{$invoice->created_at->translatedFormat('l, d F Y')}}</td>
               <td>{{number_format($invoice->amount, '2', ',', '.')}} </td>

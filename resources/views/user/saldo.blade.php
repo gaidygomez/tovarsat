@@ -19,6 +19,7 @@
                                 <dd> C.I: {{ $saldo_tovar[0]->Cedula }} </dd>
                                 <dd>Su número de contrato es: {{ $saldo_tovar[0]->numcuenta }} </dd>
                                 <dt>Hasta la fecha: {{ Carbon\Carbon::parse($saldo_tovar[0]->notfching)->format('d/m/Y') }}</dt>
+                                <dt>Su deuda con nosotros es de: {{ number_format($saldo_tovar[0]->nottotmonto, 2, ',', '.') }} Bs. </dt>
                                 <dt>Nos alegra informarle que no presenta deuda acumulada con nosotros. </dt>
                             </dl>
                         </div>
@@ -76,7 +77,8 @@
                                 <dd>C.I: {{ $saldo_merida[0]->Cedula }} </dd>
                                 <dd>Su número de contrato con nosotros es: {{ $saldo_merida[0]->numcuenta }} </dd>
                                 <dt>Hasta la fecha: {{ Carbon\Carbon::parse($saldo_merida[0]->notfching)->format('d/m/Y') }}</dt>
-                                <dt>Nos alegra informarle que no presenta deuda con nosotros. </dt>
+                                <dt>Su deuda con nosotros es de: {{ number_format($saldo_merida[0]->nottotmonto, 2, ',', '.') }} Bs. </dt>
+                                <dt>Nos alegra informarle que no presenta deuda acumulada con nosotros. </dt>
                             </dl>
                         </div>
                         <!-- /.box-body -->

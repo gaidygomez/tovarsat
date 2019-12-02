@@ -16,6 +16,7 @@ class CreatePaymentsTable extends Migration
         Schema::connection('pgsql')->create('payments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->decimal('amount', 20, 2)->unsigned();
+            $table->date('date');
             $table->string('bank');
             $table->string('brn');
             $table->text('comment')->nullable();

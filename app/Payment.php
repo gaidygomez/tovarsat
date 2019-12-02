@@ -11,7 +11,7 @@ class Payment extends Model
     protected $table = "payments";
 
     protected $fillable = [
-        'amount', 'brn', 'bank', 'comment', 'user_id', 'bank_id'
+        'amount', 'brn', 'bank', 'comment', 'user_id', 'bank_id', 'date'
     ];
 
     public function user(){

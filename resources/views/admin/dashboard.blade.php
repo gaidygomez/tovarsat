@@ -4,49 +4,9 @@ This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Pago en Linea Tovarsat</title>
+  
+@include('layouts.head')
 
-    <link rel="icon" type="icon" href="{{ asset('img/favicon.ico') }}">
-    <link rel="icon" type="png" href="{{ asset('img/favicon-16x16.png') }}">
-    <link rel="icon" type="png" href="{{ asset('img/favicon-32x32.png') }}">
-    <link rel="icon" type="png" href="{{ asset('img/favicon-96x96.png') }}">
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="{{ asset('admin/bower_components/bootstrap/dist/css/bootstrap.css') }}">
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/b7de1e60dc.js"></script>
-
-  <!-- Ajax -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="{{ asset('admin/bower_components/Ionicons/css/ionicons.css') }}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('admin/dist/css/AdminLTE.css') }}">
-  <!-- Datatables -->
-  <link rel="stylesheet" href="{{ asset('admin/bower_components/datatables/css/dataTables.bootstrap.css') }}">
-  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-        page. However, you can choose any other skin. Make sure you
-        apply the skin class to the body tag so the changes take effect. -->
-  <link rel="stylesheet" href="{{ asset('admin/dist/css/skins/skin-blue.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/alert.css') }}">
-
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Font -->
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
 <!--
 BODY TAG OPTIONS:
 =================
@@ -68,71 +28,10 @@ desired effect
 |---------------------------------------------------------|
 -->
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
 
+  <div class="wrapper">
   <!-- Main Header -->
-  <header class="main-header">
-
-    <!-- Logo -->
-    <a href="#" class="logo">
-      <img src="{{ asset('img/logo.png') }}" class="logo-lg" width="130" height="40">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <img src="{{ asset('img/Logo-T.png') }}" class="logo-mini" width="50" height="40">
-      <!--<span class="logo-mini"><b>A</b>LT</span>-->
-      <!-- logo for regular state and mobile devices -->
-      <!--<span class="logo-lg"><b>Admin</b>LTE</span>-->
-    </a>
-
-    <!-- Header Navbar -->
-    <nav class="navbar navbar-static-top" role="navigation">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-      </a>
-      <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- User Account Menu -->
-          <li class="dropdown user user-menu">
-            <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <!-- The user image in the navbar-->
-              <i class="fas fa-user"></i>
-              <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">{{auth()->user()->name}}</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- The user image in the menu -->
-              <li class="user-header">
-
-                <p>
-                  {{auth()->user()->name}}
-                </p>
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  
-                </div>
-
-                <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat" 
-                  onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">Cerrar Sesión</a>
-
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                  </form>
-                </div>
-
-              </li>
-            </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-        </ul>
-      </div>
-    </nav>
-  </header>
+  @include('layouts.header')
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
 
@@ -176,6 +75,7 @@ desired effect
             <li><a href="{{ route('debt') }}"><i class="fas fa-donate"></i><span style=" padding-left: 1rem;">Consultar Saldo</span></a></li>
             <li><a href="{{ route('pay') }}"><i class="fa fa-money"></i><span style=" padding-left: 1rem;">Pago en Línea</span></a></li>
             <li><a href="{{ route('history') }}"><i class="fa fa-history"></i><span style=" padding-left: 1rem;">Historicos de Pagos</span></a></li>
+            <li><a href="{{ route('buscador') }}"><i class="fa fa-search-dollar"></i><span style=" padding-left: 1rem;">Buscar Pagos</span></a></li>
           @endif
       </ul>
       <!-- /.sidebar-menu -->
@@ -194,25 +94,27 @@ desired effect
 
     <!-- Main content -->
     <section class="content container-fluid">
-     @yield('content')
+      @yield('content')
 
-     @yield('listuser')
+      @yield('listuser')
 
-     @yield('saldo')
+      @yield('saldo')
 
-     @yield('nopagar')
+      @yield('nopagar')
 
-     @yield('pagar')
+      @yield('pagar')
 
-     @yield('provincial')
-     
-     @yield('ppagos')
+      @yield('provincial')
+      
+      @yield('ppagos')
 
-     @yield('history')
+      @yield('history')
 
-     @yield('invoice')
-
+      @yield('invoice')
+      
+      @yield('buscar')
     </section>
+    
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -226,11 +128,10 @@ desired effect
   <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
-</div>
+  </div>
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
-
 <!-- jQuery 3 -->
 <script src="{{ asset('admin/bower_components/jquery/dist/jquery.js') }}"></script>
 <!-- Bootstrap 3.3.7 -->
@@ -251,7 +152,7 @@ desired effect
     $('#history').DataTable({
       'paging'      : false,
       'lengthChange': true,
-      'searching'   : true,
+      'searching'   : false,
       'ordering'    : true,
       'info'        : false,
       'autoWidth'   : true
@@ -259,5 +160,42 @@ desired effect
   })
 </script>
 
+<script>
+
+const buscador = document.querySelector('#resultados')
+
+function traer() {
+
+  var valor = document.getElementById("hotSearch").value
+
+  if(valor.length >=2){
+    fetch(`{{route("hotSearch")}}?hotSearch=${valor}`)
+    .then(response => response.json())
+    .then(tabla)
+  }else{
+    resultados.innerHTML = ''
+  }
+}
+
+function tabla(data) {
+
+  const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
+
+  for(let datos in data){
+
+    var date = new Date(data[datos].created_at)
+    var mydate = date.toLocaleDateString("es-ES", options)
+    
+    resultados.innerHTML += `
+      <tr>
+        <td>${data[datos].bank}</td>
+        <td>${data[datos].brn}</td>
+        <td>${data[datos].amount}</td>
+        <td>${mydate}</td>
+      </tr>
+    `
+  }
+}
+</script>
 </body>
 </html>

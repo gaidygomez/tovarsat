@@ -28,12 +28,12 @@ class OptionsRegisterController extends Controller
         $ci = $request->get('ci');
 
         $validator = Validator::make($request->all(), [
-            'ci' => 'numeric|digits_between:7,8',
+            'ci' => 'numeric|digits_between:6,8',
         ]);
 
         if ($validator->fails()) {
             return back()
-                ->with('ci', 'Los números de su cédula exceden los 8 dígitos, o son menor de 7 dígitos.');
+                ->with('ci', 'Los números de su cédula exceden los 8 dígitos, o son menor de 6 dígitos.');
         }else{
             $user = DB::connection('avatar')
                 ->table('dbo.clientes')
@@ -57,12 +57,12 @@ class OptionsRegisterController extends Controller
         $ci = $request->get('ci');
 
         $validator = Validator::make($request->all(), [
-            'ci' => 'numeric|digits_between:7,8',
+            'ci' => 'numeric|digits_between:6,8',
         ]);
         
         if ($validator->fails()) {
             return back()
-                ->with('ci', 'Los números de su cédula exceden los 8 dígitos, o son menos de 7 dígitos.');
+                ->with('ci', 'Los números de su cédula exceden los 8 dígitos, o son menos de 6 dígitos.');
         } else {
             $user = DB::connection('avatar_tov')
                 ->table('dbo.clientes')

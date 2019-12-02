@@ -94,5 +94,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('historico', 'UserOptionsController@history')->name('history');
     Route::get('invoice/{id}', 'UserOptionsController@invoice')->name('invoice');
     Route::get('print/{id}', 'UserOptionsController@print')->name('imprimir');
-    Route::get('buscar', 'UserOptionsController@search')->name('live_search');
+    Route::get('buscador', 'UserOptionsController@index')->name('buscador');
+    Route::get('live_search', 'UserOptionsController@search')->name('hotSearch');
 });

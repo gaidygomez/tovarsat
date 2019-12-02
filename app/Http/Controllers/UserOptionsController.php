@@ -17,7 +17,7 @@ class UserOptionsController extends Controller
     public function debt(){
         $ci = auth()->user()->ci;
 
-        $date = Carbon::now()->subMonth()->day(1); //Deshacer el subMonth() para obtener la fecha del mes actual.
+        $date = Carbon::now()->day(1); //Deshacer el subMonth() para obtener la fecha del mes actual.
         $date = $date->format('Ymd');
 
         $saldo = DB::connection('avatar')
@@ -48,7 +48,7 @@ class UserOptionsController extends Controller
     public function pay(){
         $ci = auth()->user()->ci;
 
-        $date = Carbon::now()->subMonth()->day(1); // Este sí debe ir para calcular la deuda. Ya que se calcula con el mes anterior.
+        $date = Carbon::now()->subMonth()->day(1); // Este sí debe ir para calcular la deuda. Ya que se calcula con el mes anterior, es decir, subMonth().
         $date = $date->format('Ymd');
 
         $deuda = DB::connection('avatar')
@@ -86,7 +86,7 @@ class UserOptionsController extends Controller
 
     public function history(){
 
-        $pagos = auth()->user()->payments()->orderBy('created_at', 'DESC')->paginate(8);
+        $pagos = auth()->user()->payments()->orderBy('date', 'DESC')->paginate(10);
 
         return view('user.historico')->with('saldos', $pagos);
     }
@@ -145,19 +145,25 @@ class UserOptionsController extends Controller
         }
     }
 
-//     public function search(){
+    public function search(){
         
-//   /* Entiendase que resquest() es un helper tambien puedes usar
-//    * el típico $request.
-//   */
-//         $results = auth()->user()->payments()
-//             ->where(function ($query) {
-//                 $query->where('brn', 'like', '%' . request()->search . '%')
-//                     ->orWhere('bank', 'like', '%' . request()->search . '%')
-//                     ->orWhere('comment', 'like', '%' . request()->search . '%');
-//         })->get();
+        $user = auth()->user()->id;
 
-//         return view('user.historico', compact('results'));
+        $results = auth()->user()->payments()
+            ->where('brn', 'like', '%' . request()->hotSearch . '%')
+            ->orWhere('bank', 'like', '%' . request()->hotSearch . '%')
+            ->orWhere('comment', 'like', '%' . request()->hotSearch . '%')
+            ->orWhere('date', 'like', '%'. request()->hotSearch . '%')
+            ->orWhere('amount', 'like', '%' . request()->hotSearch . '%', 'and')
+            ->where('user_id', '=', "$user")
+            ->orderByDesc('created_at')
+            ->take(10)
+            ->get();
 
-//     }
+        return response()->json($results);
+    }
+
+    public function index(){
+        return view('user.buscar');
+    }
 }
