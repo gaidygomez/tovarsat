@@ -640,7 +640,7 @@ a:focus {
   .sidebar-mini.sidebar-collapse .sidebar-menu > li > a > span > .pull-right,
   .sidebar-mini.sidebar-collapse .sidebar-menu li.header {
     display: none !important;
-    -webkit-transform: translateZ(0);
+    /*-webkit-transform: translateZ(0);*/
   }
   .sidebar-mini.sidebar-collapse .main-header .logo {
     width: 50px;
@@ -1335,10 +1335,19 @@ a:focus {
   color: #dd4b39;
 }
 /* Input group */
+.input-group {
+    position: relative;
+    display: flex;
+    border-collapse: separate;
+}
 .input-group .input-group-addon {
   border-radius: 0;
   border-color: #d2d6de;
   background-color: #fff;
+}
+input[type="search"]{
+  border-radius: 5px;
+  margin-left: 5px;
 }
 /* button groups */
 .btn-group-vertical .btn.btn-flat:first-of-type,
@@ -1580,7 +1589,7 @@ a:focus {
   border-radius: 3px;
   background: #ffffff;
   border-top: 3px solid #d2d6de;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   width: 100%;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
@@ -1793,9 +1802,11 @@ a:focus {
   margin-right: 5px;
 }
 .box-header > .box-tools {
-  position: absolute;
+  position: relative;
   right: 10px;
   top: 5px;
+  float: right;
+  margin: 10px 0;
 }
 .box-header > .box-tools [data-toggle="tooltip"] {
   position: relative;
@@ -1826,6 +1837,7 @@ a:focus {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   padding: 10px;
+  padding-top: 0px;
 }
 .no-header .box-body {
   border-top-right-radius: 3px;
@@ -2632,6 +2644,12 @@ a:focus {
 .pagination.pagination-flat > li > a {
   border-radius: 0 !important;
 }
+.pagination {
+    display: flex;
+    padding-left: 0;
+    margin: 10px 0;
+    border-radius: 4px;
+}
 /*
  * Component: Products List
  * ------------------------
@@ -2705,6 +2723,7 @@ a:focus {
 }
 .table-bordered {
   border: 1px solid #f4f4f4;
+  margin-top: 10px;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
@@ -2734,6 +2753,11 @@ table.text-center th {
 }
 .table.align td {
   text-align: right;
+}
+
+.dataTables_filter{
+  float: right;
+  margin-bottom: 5px;
 }
 /*
  * Component: Label

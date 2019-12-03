@@ -103,6 +103,19 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
+        
+        'avatar_tov' => [
+            'driver' => 'sqlsrv',
+            'url' => env('DATABASE_URL'),
+            'host' => env('AVATAR_TOV_HOST', 'localhost'),
+            'port' => env('AVATAR_TOV_PORT', '1433'),
+            'database' => env('AVATAR_TOV_DATABASE', 'forge'),
+            'username' => env('AVATAR_TOV_USERNAME', 'forge'),
+            'password' => env('AVATAR_TOV_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+        ],
 
     ],
 

@@ -14,12 +14,16 @@ class CreatePaymentsTable extends Migration
     public function up()
     {
         Schema::connection('pgsql')->create('payments', function (Blueprint $table) {
-            $table->increments('id');
-            $table->float('amount')->unsigned();
+            $table->bigIncrements('id');
+            $table->decimal('amount', 20, 2)->unsigned();
+            $table->date('date');
             $table->string('bank');
-            $table->integer('BRN')->unique();
+            $table->string('brn');
             $table->text('comment')->nullable();
             $table->timestamps();
+            $table->smallInteger('status')->nullable()->default(0); // 0: Por Confirmar, 1: Confirmado, 2: Rechazado
+            $table->integer('user_id')->nullable()->unsigned();
+            $table->integer('bank_id')->nullable()->unsigned();
         });
     }
 

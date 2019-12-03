@@ -29,9 +29,9 @@ Route::get('speed', 'SpeedController@index')->name('speed');
 
 // Búsqueda de Clientes
 Route::get('tovar/search', 'OptionsRegisterController@tovarsearch')->name('tovar_search');
-Route::post('tovar/search', 'OptionsRegisterController@tovarsearchpost')->name('tovar_post');
+Route::post('tovar/search', 'OptionsRegisterController@tovarpost')->name('tovar_post');
 Route::get('merida/search', 'OptionsRegisterController@meridasearch')->name('merida_search');
-Route::post('merida/search', 'OptionsRegisterController@meridasearchpost')->name('merida_post');
+Route::post('merida/search', 'OptionsRegisterController@meridapost')->name('merida_post');
 
 
 // Register Options
@@ -75,3 +75,25 @@ Route::group(['middleware' => 'admin'], function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('deuda', 'UserOptionsController@debt')->name('debt');
+    Route::get('pagar', 'UserOptionsController@pay')->name('pay');
+    Route::get('provincial', 'BanksController@bp')->name('bp');
+    Route::post('provincial/pago', 'BankPostController@bp')->name('bp_post');
+    Route::get('mercantil/merida', 'BanksController@mm')->name('mm');
+    Route::post('mercantil/merida/pago', 'BankPostController@mm')->name('mm_post');
+    Route::get('mercantil/tovar', 'BanksController@mt')->name('mt');
+    Route::post('mercantil/tovar/pago', 'BankPostController@mt')->name('mt_post');
+    Route::get('venezuela', 'BanksController@bdv')->name('bdv');
+    Route::post('venezuela/pago', 'BankPostController@bdv')->name('bdv_post');
+    Route::get('banesco', 'BanksController@banesco')->name('banesco');
+    Route::post('banesco/pago', 'BankPostController@banescopost')->name('banesco_post');
+    Route::get('sofitasa', 'BanksController@bs')->name('bs');
+    Route::post('sofitasa/pago', 'BankPostController@bs')->name('bs_post');
+    Route::get('historico', 'UserOptionsController@history')->name('history');
+    Route::get('invoice/{id}', 'UserOptionsController@invoice')->name('invoice');
+    Route::get('print/{id}', 'UserOptionsController@print')->name('imprimir');
+    Route::get('buscador', 'UserOptionsController@index')->name('buscador');
+    Route::get('live_search', 'UserOptionsController@search')->name('hotSearch');
+});

@@ -991,4 +991,13 @@ button {
   padding-top: 0.6rem;
 }
 
-/*# sourceMappingURL=Searchs_130.css.map */
+.alerta-ci{
+  margin: 1rem;
+  box-sizing: border-box;
+  padding-left: 1.5rem;
+  background: rgba(255, 255, 109, 0.45);
+  width: 93%;
+  height: 40px;
+  border-radius: 12px;
+  padding-top: 0.6rem;
+}

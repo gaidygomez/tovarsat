@@ -15,6 +15,8 @@
                     @endif
 
                     <p>Antes de proceder, debe verificar su cuenta.</p>
+                    <strong>Si usa el servicio Hotmail u Outlook, debe revisar en su bandeja de SPAM.</strong>
+                    <br>
                     <p>Si no ha recibido ningún enlace de verificación</p> <a href="{{ route('verification.resend') }}"><span>Presione aquí para que se le envíe otro.</span></a>.
                 </div>
             </div>
