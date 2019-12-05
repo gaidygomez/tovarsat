@@ -15,16 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*---------- Rutas Index --------------*/
 Route::get('inicio', 'SendMailController@index')->name('inicio');
-
 Route::post('email', 'SendMailController@store')->name('tv');
-
 Route::post('atencion', 'SendMailController@customsupp')->name('atencion');
-
 Route::post('inter', 'SendMailController@inter')->name('inter');
-
 Route::post('coor', 'SendMailController@coor')->name('coor');
-
 Route::get('speed', 'SpeedController@index')->name('speed');
 
 // Búsqueda de Clientes
@@ -43,11 +39,8 @@ Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
-
-//Route::group(['middleware' => 'admin'], function() {
-    Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-	Route::post('register', 'Auth\RegisterController@register');
-//});
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
 
 /**
  * Register the typical reset password routes for an application.
@@ -70,12 +63,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 /*------------ Rutas de Admin Dashboard -----------------*/
-Route::group(['middleware' => 'admin'], function () {
-	Route::get('listuser', 'Admin\AdminController@show')->name('listuser');
+Route::namespace('Admin')->middleware('admin')->group( function () {
+    Route::get('listuser', 'AdminController@show')->name('listuser');
+    Route::get('adm/register', 'AdminController@register')->name('admRegister');
+    Route::post('adm/register', 'AdminController@postRegister')->name('postRegister');
+    Route::get('adm/pagos', 'AdminController@listpay')->name('listpay');
+    Route::get('export', 'AdminController@export')->name('export');   
 });
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
+/*----------------- Rutas de los Usuarios --------------------*/
 Route::group(['middleware' => 'auth'], function () {
     Route::get('deuda', 'UserOptionsController@debt')->name('debt');
     Route::get('pagar', 'UserOptionsController@pay')->name('pay');

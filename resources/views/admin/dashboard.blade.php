@@ -69,8 +69,10 @@ desired effect
         <!-- Optionally, you can add icons to the links -->
           <li><a href="{{ route('home') }}"><i class="fas fa-home"></i><span style="padding-left: .75rem;">Inicio</span></a></li>
           @if (auth()->user()->is_admin)
-            <li><a href="{{ route('register') }}"><i class="fas fa-user-plus"></i><span style="padding-left: .6rem;">Registrar Usuario</span></a></li>
-            <li><a href="{{ route('listuser') }}"><i class="fas fa-address-book"></i><span style="padding-left: 1.2rem;">Listar Clientes</span></a></li>              
+            <li><a href="{{ route('admRegister') }}"><i class="fas fa-user-plus"></i><span style="padding-left: .6rem;">Registrar Usuario</span></a></li>
+            <li><a href="{{ route('listuser') }}"><i class="fas fa-address-book"></i><span style="padding-left: 1.2rem;">Listar Clientes</span></a></li>
+            <li><a href="{{ route('listpay') }}"><i class="fas fa-search-dollar"></i><span style="padding-left: 1.2rem;">Listar Pagos</span></a></li>
+            <li><a href="{{ route('export') }}"><i class="fas fa-file-excel"></i><span style="padding-left: 1.2rem;">Generar EXCEL</span></a></li>
           @else
             <li><a href="{{ route('debt') }}"><i class="fas fa-donate"></i><span style=" padding-left: 1rem;">Consultar Saldo</span></a></li>
             <li><a href="{{ route('pay') }}"><i class="fa fa-money"></i><span style=" padding-left: 1rem;">Pago en Línea</span></a></li>
@@ -113,6 +115,10 @@ desired effect
       @yield('invoice')
       
       @yield('buscar')
+
+      @yield('registrar')
+
+      @yield('listpay')
     </section>
     
     <!-- /.content -->
@@ -156,6 +162,45 @@ desired effect
       'ordering'    : true,
       'info'        : false,
       'autoWidth'   : true
+    })
+  })
+</script>
+
+<script>
+  $(function () {
+    $('#list-user').DataTable({
+      'paging'      : false,
+      'lengthChange': true,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : false,
+      'autoWidth'   : true
+    })
+  })
+</script>
+
+<script>
+  $(function () {
+    $('#table-hotSearch').DataTable({
+      'paging'      : false,
+      'lengthChange': true,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : false,
+      'autoWidth'   : true
+    })
+  })
+</script>
+
+<script>
+  $(function () {
+    $('#list-pay').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : false,
+      'autoWidth'   : false
     })
   })
 </script>
