@@ -16,6 +16,8 @@
           <!-- /.row -->
       </div>
       <!-- small box -->
+      @if (auth()->user()->is_admin)
+          
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>{{$users}}</h3>
@@ -26,6 +28,7 @@
               <i class="ion ion-person-add"></i>
             </div>
           </div>
+      @endif
     </div>
       <!-- /.widget-user -->
 
