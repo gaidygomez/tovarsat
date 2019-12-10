@@ -2645,12 +2645,6 @@ input[type="search"]{
 .pagination.pagination-flat > li > a {
   border-radius: 0 !important;
 }
-.pagination {
-    display: flex;
-    padding-left: 0;
-    margin: 10px 0;
-    border-radius: 4px;
-}
 /*
  * Component: Products List
  * ------------------------

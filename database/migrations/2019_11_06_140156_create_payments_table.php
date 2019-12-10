@@ -19,7 +19,6 @@ class CreatePaymentsTable extends Migration
             $table->date('date');
             $table->string('bank');
             $table->string('brn');
-            $table->string('file');
             $table->text('comment')->nullable();
             $table->timestamps();
             $table->smallInteger('status')->nullable()->default(0); // 0: Por Confirmar, 1: Confirmado, 2: Rechazado

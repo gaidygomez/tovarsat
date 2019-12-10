@@ -7,6 +7,8 @@
         <th>Fecha en la que hizo la Transferencia</th>
         <th>Usuario</th>
         <th>Cédula</th>
+        <th>Sucursal</th>
+        <th>Estado del Pago</th>
         </tr>
     </thead>
     <tbody>
@@ -24,6 +26,7 @@
                             <td>{{$pago->name}} </td>
                             <td>{{$pago->ci}} </td>
                         @endif
+                        <td>{{$pago->address}}</td>
                     </tr> 
                 @endif
             @endforeach

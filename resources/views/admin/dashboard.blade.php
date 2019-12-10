@@ -49,20 +49,6 @@ desired effect
         </div>
       </div>
 
-      <!-- search form (Optional) -->
-      @if (auth()->user()->is_admin)
-        <form action="#" method="get" class="sidebar-form">
-          <div class="input-group">
-            <input type="text" name="q" class="form-control" placeholder="Search...">
-            <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-          </div>
-        </form>          
-      @endif
-      <!-- /.search form -->
-
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header"></li>
@@ -119,6 +105,8 @@ desired effect
       @yield('registrar')
 
       @yield('listpay')
+
+      @yield('edit-user')
     </section>
     
     <!-- /.content -->
@@ -146,10 +134,11 @@ desired effect
 <script src=" {{ asset('admin/dist/js/adminlte.js') }}"></script>
 <!-- FastClick -->
 <script src="{{ asset('admin/bower_components/fastclick/lib/fastclick.js') }}"></script>
+<!-- DataTables -->
+<script src="{{ asset('admin/bower_components/datatables.net/js/jquery.dataTables.js')}}"></script>
+<script src="{{ asset('admin/bower_components/datatables/js/dataTables.bootstrap.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('admin/dist/js/demo.js') }}"></script>
-<!-- DataTables -->
-<script src="{{ asset('admin/bower_components/datatables.net/js/jquery.dataTables.js') }}"></script>
 <!-- SlimScroll -->
 <script src="{{ asset('admin/bower_components/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
 <!-- page script -->
@@ -158,7 +147,7 @@ desired effect
     $('#history').DataTable({
       'paging'      : false,
       'lengthChange': true,
-      'searching'   : false,
+      'searching'   : true,
       'ordering'    : true,
       'info'        : false,
       'autoWidth'   : true
@@ -171,7 +160,7 @@ desired effect
     $('#list-user').DataTable({
       'paging'      : false,
       'lengthChange': true,
-      'searching'   : false,
+      'searching'   : true,
       'ordering'    : true,
       'info'        : false,
       'autoWidth'   : true
@@ -182,7 +171,7 @@ desired effect
 <script>
   $(function () {
     $('#table-hotSearch').DataTable({
-      'paging'      : false,
+      'paging'      : true,
       'lengthChange': true,
       'searching'   : false,
       'ordering'    : true,
@@ -194,7 +183,7 @@ desired effect
 
 <script>
   $(function () {
-    $('#list-pay').DataTable({
+    $('#payment').DataTable({
       'paging'      : true,
       'lengthChange': false,
       'searching'   : true,

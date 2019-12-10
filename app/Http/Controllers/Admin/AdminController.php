@@ -4,15 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
-
-use Illuminate\Support\Carbon;
 use App\Http\Requests\AdmRegisterRequest;
-use App\User;
 use App\Payment;
-use App\Bank;
+use App\User;
 use Illuminate\Support\Facades\Hash;
-
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 
@@ -66,5 +61,58 @@ class AdminController extends Controller
     public function export() 
     {
         return Excel::download(new UsersExport, 'pagos-del-mes-pagina.xlsx');
+    }
+
+    public function editUser(User $id){
+        return view('admin.edituser')->with('user', $id);
+    }
+
+    public function editUserUpdate(User $id, AdmRegisterRequest $request){
+
+        if (request('role') == 'Usuario') {
+            $id->update([
+                'name' => $request['name'],
+                'ci' => $request['ci'],
+                'email' => $request['email'],
+                'role' => 1,
+                'password' => Hash::make($request['password']),
+            ]);
+
+            return redirect('listuser')->with('msg', 'El Usuario fue actualizado.');
+        } else {
+            $id->update([
+                'name' => $request['name'],
+                'ci' => $request['ci'],
+                'email' => $request['email'],
+                'role' => 0,
+                'password' => Hash::make($request['password']),
+            ]);
+
+            return redirect('listuser')->with('msg', 'El Usuario fue actualizado.');
+        }
+    }
+
+    public function deleteUser(User $id){
+        
+        $id->delete();
+
+        return redirect('listuser')->with('delete', 'El Usuario fue eliminado');
+    }
+
+    public function approve($id){
+       
+        $pago = Payment::find($id);
+        $pago->status = 1;
+        $pago->save();
+
+       return back()->with('approved', 'El Pago fue APROBADO');
+    }
+
+    public function rejected($id){
+        $pago = Payment::find($id);
+        $pago->status = 2;
+        $pago->save();
+
+        return back()->with('rejected', 'El Pago fue RECHAZADO');
     }
 }

@@ -3,13 +3,24 @@
 @section('listpay')
 <div class="row">
         <div class="col-xs-12">
+          @if (session()->has('approved'))
+            <div class="alert alert-success alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <h5><i class="icon fa fa-check"></i><strong>{{ session()->get('approved') }}</strong></h5>
+            </div>
+          @elseif(session()->has('rejected'))
+            <div class="alert alert-danger alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <h5><i class="icon fa fa-warning"></i><strong>{{ session()->get('rejected') }}</strong></h5>
+            </div>              
+          @endif
           <div class="box" style="margin-bottom: 7px;">
             <div class="box-header">
-              <h3 class="box-title">Listado de usuarios</h3>
+              <h3 class="box-title">Listado de Pagos</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="list-pay" class="table table-bordered table-hover">
+              <table id="payment" class="table table-bordered table-hover">
                 <thead>
                   <tr>
                     <th>Banco al que se hizo la Transferencia</th>
@@ -18,6 +29,10 @@
                     <th>Fecha en la que hizo la Transferencia</th>
                     <th>Usuario</th>
                     <th>Cédula</th>
+                    <th>Sucursal</th>
+                    <th>Estado</th>
+                    <th>Aprobar</th>
+                    <th>Rechazar</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -32,6 +47,24 @@
                           <td>{{$pago->name}} </td>
                           <td>{{$pago->ci}} </td>
                         @endif
+                        <td>{{$pago->address}}</td>
+                        @if ($item->status === 0)
+                                <td><span class="label label-warning">Pendiente</span></td>
+                        @elseif($item->status === 1)
+                                <td><span class="label label-success">Aprobado</span></td>
+                        @else
+                                <td><span class="label label-danger">Rechazado</span></td>
+                        @endif
+                        <form action="{{ route('aprobar.pagos', ['id'=>$item]) }}" method="post">
+                          @csrf
+                          @method('put')
+                          <td> <button name="approved" class="btn btn-success"> Aprobar</button></td>
+                        </form>
+                        <form action="{{ route('rechazar.pagos', ['id'=>$item]) }}" method="post">
+                          @csrf
+                          @method('put')
+                          <td> <button name="rejected" class="btn btn-danger"> Rechazar</button></td>
+                        </form>
                       </tr> 
                     @endforeach
                   @endforeach

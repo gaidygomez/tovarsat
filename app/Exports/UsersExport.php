@@ -15,7 +15,7 @@ class UsersExport implements FromView
     public function view(): View
     {
         return view('exports', [
-            'pagos' => User::where('id', '<>', 1)->with('payments')->get()
+            'pagos' => User::where('id', '<>', 1, 'and')->with('payments')->get()
         ]);
     }
 }

@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Payment;
-use App\User;
-use App\Bank;
 use Illuminate\Support\Carbon;
-use Illuminate\Http\Request;
 
 use Barryvdh\DomPDF\Facade as PDF;
 
@@ -17,7 +14,7 @@ class UserOptionsController extends Controller
     public function debt(){
         $ci = auth()->user()->ci;
 
-        $date = Carbon::now()->subMonth()->day(1); //Dejar el subMonth() para obtener la fecha del mes anterior.
+        $date = Carbon::now()->subMonth()->day(1); //Dejar el subMonth( para obtener la fecha del mes anterior.
         $date = $date->format('Ymd');
 
         $saldo = DB::connection('avatar')
@@ -38,17 +35,26 @@ class UserOptionsController extends Controller
                 ->where('Cedula', '=', "$ci", 'and')
                 ->get();
 
-            return view('user.saldo')->with('saldo_tovar', $saldo_tov);
+            $monto_tov = $saldo_tov->pluck('notsaldo');
+
+            return view('user.saldo')
+                ->with('saldo_tovar', $saldo_tov)
+                ->with('monto_tovar', $monto_tov);
             
         }else{
-            return view('user.saldo')->with('saldo_merida', $saldo);
+
+            $monto = $saldo->pluck('notsaldo');
+
+            return view('user.saldo')
+                ->with('saldo_merida', $saldo)
+                ->with('monto', $monto);
         }
     }
 
     public function pay(){
         $ci = auth()->user()->ci;
 
-        $date = Carbon::now()->subMonth(2)->day(1); // Este sí debe ir para calcular la deuda. Ya que se calcula con el mes anterior, es decir, subMonth().
+        $date = Carbon::now()->subMonth()->day(1); // Este sí debe ir para calcular la deuda. Ya que se calcula con el mes anterior, es decir, subMonth().
         $date = $date->format('Ymd');
 
         $deuda = DB::connection('avatar')

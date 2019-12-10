@@ -14,7 +14,7 @@ class BanksController extends Controller
 
         $ci = auth()->user()->ci;
 
-        $date = Carbon::now()->subMonth(2)->day(1); // Este sí debe ir para calcular la deuda. Ya que se calcula con el mes anterior.
+        $date = Carbon::now()->subMonth()->day(1); // Este sí debe ir para calcular la deuda. Ya que se calcula con el mes anterior.
         $date = $date->format('Ymd');
 
         $deuda = DB::connection('avatar')
@@ -54,7 +54,7 @@ class BanksController extends Controller
 
         $banco = Bank::find(3);
 
-        $date = Carbon::now()->subMonth(2)->day(1); // Este sí debe ir para calcular la deuda. Ya que se calcula con el mes anterior.
+        $date = Carbon::now()->subMonth()->day(1); // Este sí debe ir para calcular la deuda. Ya que se calcula con el mes anterior.
         $date = $date->format('Ymd');
 
         $deuda = DB::connection('avatar')
@@ -94,7 +94,7 @@ class BanksController extends Controller
 
         $banco = Bank::find(4);
 
-        $date = Carbon::now()->subMonth(2)->day(1); // Este sí debe ir para calcular la deuda. Ya que se calcula con el mes anterior.
+        $date = Carbon::now()->subMonth()->day(1); // Este sí debe ir para calcular la deuda. Ya que se calcula con el mes anterior.
         $date = $date->format('Ymd');
 
         $deuda = DB::connection('avatar')
@@ -134,7 +134,7 @@ class BanksController extends Controller
 
         $banco = Bank::find(5);
 
-        $date = Carbon::now()->subMonth(2)->day(1); // Este sí debe ir para calcular la deuda. Ya que se calcula con el mes anterior.
+        $date = Carbon::now()->subMonth()->day(1); // Este sí debe ir para calcular la deuda. Ya que se calcula con el mes anterior.
         $date = $date->format('Ymd');
 
         $deuda = DB::connection('avatar')
@@ -174,7 +174,7 @@ class BanksController extends Controller
 
         $banco = Bank::find(2);
 
-        $date = Carbon::now()->subMonth(2)->day(1); // Este sí debe ir para calcular la deuda. Ya que se calcula con el mes anterior.
+        $date = Carbon::now()->subMonth()->day(1); // Este sí debe ir para calcular la deuda. Ya que se calcula con el mes anterior.
         $date = $date->format('Ymd');
 
         $deuda = DB::connection('avatar')
@@ -215,7 +215,7 @@ class BanksController extends Controller
 
         $ci = auth()->user()->ci;
 
-        $date = Carbon::now()->subMonth(2)->day(1); // Este sí debe ir para calcular la deuda. Ya que se calcula con el mes anterior.
+        $date = Carbon::now()->subMonth()->day(1); // Este sí debe ir para calcular la deuda. Ya que se calcula con el mes anterior.
         $date = $date->format('Ymd');
 
         $deuda = DB::connection('avatar')

@@ -52,6 +52,35 @@
                                 @enderror
                             </div>
                         </div>
+                        @if (session()->has('merida'))  
+                        <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">Dirección</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ session("merida") }}" required readonly>
+
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        @elseif(session()->has('tovar'))
+                        <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">Dirección</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ session("tovar") }}" required readonly>
+
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        @endif
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
@@ -122,7 +151,21 @@
                             <label for="ci" class="col-md-4 col-form-label text-md-right">Cédula</label>
 
                             <div class="col-md-6">
-                                <input id="ci" type="text" class="form-control @error('email') is-invalid @enderror" name="ci" value="{{ old('ci') }}" required autocomplete="email" readonly>
+                                <input id="ci" type="text" class="form-control @error('email') is-invalid @enderror" name="ci" value="{{ old('ci') }}" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">Dirección</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old("address") }}" required readonly>
+
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 

@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
 /*---------- Rutas Index --------------*/
-Route::get('inicio', 'SendMailController@index')->name('inicio');
+Route::get('/', 'SendMailController@index')->name('inicio');
 Route::post('email', 'SendMailController@store')->name('tv');
 Route::post('atencion', 'SendMailController@customsupp')->name('atencion');
 Route::post('inter', 'SendMailController@inter')->name('inter');
@@ -68,7 +68,12 @@ Route::namespace('Admin')->middleware('admin')->group( function () {
     Route::get('adm/register', 'AdminController@register')->name('admRegister');
     Route::post('adm/register', 'AdminController@postRegister')->name('postRegister');
     Route::get('adm/pagos', 'AdminController@listpay')->name('listpay');
-    Route::get('export', 'AdminController@export')->name('export');   
+    Route::get('export', 'AdminController@export')->name('export');
+    Route::get('edit/users/{id}', 'AdminController@editUser')->name('edit.user');
+    Route::put('edit/users/{id}', 'AdminController@editUserUpdate')->name('editUser.update');
+    Route::delete('delete/users/{id}', 'AdminController@deleteUser')->name('delete.user'); 
+    Route::put('approve/payment/{id}', 'AdminController@approve')->name('aprobar.pagos');
+    Route::put('rejected/payment/{id}', 'AdminController@rejected')->name('rechazar.pagos');
 });
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');

@@ -62,15 +62,6 @@
                     <label for="exampleInputPassword1">Puede agregar su comentario </label>
                     <input type="text" name="comment" class="form-control" placeholder="Puede comentarnos algo sobre su transferencia">
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputFile">Adjunte la captura de su Pago</label>
-                    <input type="file" name="file">
-                    @error('file')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
             </div>
             <!-- /.box-body -->
 

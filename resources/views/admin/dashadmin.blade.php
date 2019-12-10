@@ -7,7 +7,7 @@
 
 	<div class="col-md-5">
       <!-- Widget: user widget style 1 -->
-      <div class="box box-widget widget-user">
+      <div class="box box-widget widget-user" style="margin-bottom: 30px;">
         <!-- Add the bg color to the header using any of the bg-* classes -->
         <div class="widget-user-header bg-aqua-active">
           <h3 class="widget-user-username">{{auth()->user()->name}}</h3>
@@ -15,6 +15,17 @@
         </div>
           <!-- /.row -->
       </div>
+      <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>{{$users}}</h3>
+
+              <p>Usuarios Registrados</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+          </div>
     </div>
       <!-- /.widget-user -->
 
@@ -23,14 +34,14 @@
     <!-- Small boxes (Stat box) -->
         <div class="col-md-8">
           <!-- small box -->
-          <div class="small-box bg-aqua">
+          <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>150</h3>
+              <h3>{{$pendiente}}</h3>
 
-              <p>New Orders</p>
+              <p>Pagos Pendientes</p>
             </div>
             <div class="icon">
-              <i class="fa fa-shopping-cart"></i>
+              <i class="fas fa-file-invoice-dollar"></i>
             </div>
           </div>
         </div>
@@ -39,9 +50,9 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <h3>{{$hechos}}</h3>
 
-              <p>Bounce Rate</p>
+              <p>Pagos Aprobados</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
@@ -51,32 +62,30 @@
         <!-- ./col -->
         <div class="col-md-8">
           <!-- small box -->
-          <div class="small-box bg-yellow">
+          <div class="small-box bg-red">
             <div class="inner">
-              <h3>44</h3>
+              <h3>{{$reject}}</h3>
 
-              <p>User Registrations</p>
+              <p>Pagos Rechazados</p>
             </div>
             <div class="icon">
-              <i class="ion ion-person-add"></i>
+              <i class="fas fa-ban"></i>
             </div>
           </div>
         </div>
         <!-- ./col -->
         <div class="col-md-8">
-          <!-- small box -->
-          <div class="small-box bg-red">
+          <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>65</h3>
+              <h3>{{$payment}}</h3>
 
-              <p>Unique Visitors</p>
+              <p>Pagos Realizados</p>
             </div>
             <div class="icon">
-              <i class="ion ion-pie-graph"></i>
+              <i class="fas fa-cash-register"></i>
             </div>
           </div>
-        </div>
-        <!-- ./col -->  
+        </div>  
   </div>
 @endif
 </div>
