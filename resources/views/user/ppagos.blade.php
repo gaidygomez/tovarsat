@@ -15,7 +15,7 @@
 
                 <strong>Su pago está siendo procesado.</strong>
                 
-                <p>Puede contactar a nuestras oficinas para más información.</p>
+                <p>Puede dirigirse a nuestras oficinas para más información.</p>
             </div>
         </div>
     <!-- /.box-body -->

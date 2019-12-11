@@ -49,28 +49,16 @@ desired effect
         </div>
       </div>
 
-      <!-- search form (Optional) -->
-      @if (auth()->user()->is_admin)
-        <form action="#" method="get" class="sidebar-form">
-          <div class="input-group">
-            <input type="text" name="q" class="form-control" placeholder="Search...">
-            <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-          </div>
-        </form>          
-      @endif
-      <!-- /.search form -->
-
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header"></li>
         <!-- Optionally, you can add icons to the links -->
           <li><a href="{{ route('home') }}"><i class="fas fa-home"></i><span style="padding-left: .75rem;">Inicio</span></a></li>
           @if (auth()->user()->is_admin)
-            <li><a href="{{ route('register') }}"><i class="fas fa-user-plus"></i><span style="padding-left: .6rem;">Registrar Usuario</span></a></li>
-            <li><a href="{{ route('listuser') }}"><i class="fas fa-address-book"></i><span style="padding-left: 1.2rem;">Listar Clientes</span></a></li>              
+            <li><a href="{{ route('admRegister') }}"><i class="fas fa-user-plus"></i><span style="padding-left: .6rem;">Registrar Usuario</span></a></li>
+            <li><a href="{{ route('listuser') }}"><i class="fas fa-address-book"></i><span style="padding-left: 1.2rem;">Listar Clientes</span></a></li>
+            <li><a href="{{ route('listpay') }}"><i class="fas fa-search-dollar"></i><span style="padding-left: 1.2rem;">Listar Pagos</span></a></li>
+            <li><a href="{{ route('export') }}"><i class="fas fa-file-excel"></i><span style="padding-left: 1.2rem;">Generar EXCEL</span></a></li>
           @else
             <li><a href="{{ route('debt') }}"><i class="fas fa-donate"></i><span style=" padding-left: 1rem;">Consultar Saldo</span></a></li>
             <li><a href="{{ route('pay') }}"><i class="fa fa-money"></i><span style=" padding-left: 1rem;">Pago en Línea</span></a></li>
@@ -113,6 +101,12 @@ desired effect
       @yield('invoice')
       
       @yield('buscar')
+
+      @yield('registrar')
+
+      @yield('listpay')
+
+      @yield('edit-user')
     </section>
     
     <!-- /.content -->
@@ -140,10 +134,11 @@ desired effect
 <script src=" {{ asset('admin/dist/js/adminlte.js') }}"></script>
 <!-- FastClick -->
 <script src="{{ asset('admin/bower_components/fastclick/lib/fastclick.js') }}"></script>
+<!-- DataTables -->
+<script src="{{ asset('admin/bower_components/datatables.net/js/jquery.dataTables.js')}}"></script>
+<script src="{{ asset('admin/bower_components/datatables/js/dataTables.bootstrap.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('admin/dist/js/demo.js') }}"></script>
-<!-- DataTables -->
-<script src="{{ asset('admin/bower_components/datatables.net/js/jquery.dataTables.js') }}"></script>
 <!-- SlimScroll -->
 <script src="{{ asset('admin/bower_components/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
 <!-- page script -->
@@ -152,10 +147,49 @@ desired effect
     $('#history').DataTable({
       'paging'      : false,
       'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : false,
+      'autoWidth'   : true
+    })
+  })
+</script>
+
+<script>
+  $(function () {
+    $('#list-user').DataTable({
+      'paging'      : false,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : false,
+      'autoWidth'   : true
+    })
+  })
+</script>
+
+<script>
+  $(function () {
+    $('#table-hotSearch').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
       'searching'   : false,
       'ordering'    : true,
       'info'        : false,
       'autoWidth'   : true
+    })
+  })
+</script>
+
+<script>
+  $(function () {
+    $('#payment').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : false,
+      'autoWidth'   : false
     })
   })
 </script>

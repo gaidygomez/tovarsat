@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="box-body">
-                <table class="table table-bordered table-striped">
+                <table id="table-hotSearch" class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>Banco al que hizo la Transferencia</th>

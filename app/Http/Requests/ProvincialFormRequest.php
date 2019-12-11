@@ -28,7 +28,6 @@ class ProvincialFormRequest extends FormRequest
             'brn' => 'required|numeric|digits_between:7,13',
             'bank' => 'required|numeric|digits:20',
             'date' => 'required',
-            'file' => 'required|mimes:jpeg,png,pdf'
         ];
     }
 
@@ -43,7 +42,6 @@ class ProvincialFormRequest extends FormRequest
             'bank.required' => 'Este campo es requerido',
             'bank.numeric' => 'Este campo debe ser un número',
             'date.required' => 'Este campo es requerido',
-            'file.required' => 'Este campo es requerido',
         ];
     }
 }

@@ -44,10 +44,14 @@ class OptionsRegisterController extends Controller
             if (isset($user->first()->Cedula) == null) {
                 return back()->with('alert', 'Su cédula no se encuentra en nuestros registros.');
             } else {
+
+                $merida = 'MERIDA';
+
                 return redirect('register')
                     ->with(["ci" => $ci])
                     ->with(["name" => $user->first()->Nombre1])
-                    ->with(["apellido" => $user->first()->Apellido1]);
+                    ->with(["apellido" => $user->first()->Apellido1])
+                    ->with('merida', $merida);
             }
         }
    }
@@ -73,10 +77,14 @@ class OptionsRegisterController extends Controller
             if (isset($user->first()->Cedula) == null) {
                 return back()->with('alert', 'Su cédula no se encuentra en nuestros registros.');
             } else {
+
+                $tovar = 'TOVAR';
+
                 return redirect('register')
                     ->with(["ci" => $ci])
                     ->with(["name" => $user->first()->Nombre1])
-                    ->with(["apellido" => $user->first()->Apellido1]);
+                    ->with(["apellido" => $user->first()->Apellido1])
+                    ->with('tovar', $tovar);
             }
         }
    }

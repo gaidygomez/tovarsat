@@ -33,7 +33,7 @@
                             @elseif($item->status === 1)
                                 <td><span class="label label-success">Aprobado</span></td>
                             @else
-                                <td><span class="label label-warning">Pendiente</span></td>
+                                <td><span class="label label-danger">Rechazado</span></td>
                             @endif
                         </tr>
                     @endforeach

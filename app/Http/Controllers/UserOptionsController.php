@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Payment;
-use App\User;
-use App\Bank;
 use Illuminate\Support\Carbon;
-use Illuminate\Http\Request;
 
 use Barryvdh\DomPDF\Facade as PDF;
 
@@ -17,7 +14,7 @@ class UserOptionsController extends Controller
     public function debt(){
         $ci = auth()->user()->ci;
 
-        $date = Carbon::now()->day(1); //Deshacer el subMonth() para obtener la fecha del mes actual.
+        $date = Carbon::now()->subMonth()->day(1); //Dejar el subMonth( para obtener la fecha del mes anterior.
         $date = $date->format('Ymd');
 
         $saldo = DB::connection('avatar')
@@ -38,10 +35,19 @@ class UserOptionsController extends Controller
                 ->where('Cedula', '=', "$ci", 'and')
                 ->get();
 
-                return view('user.saldo')->with('saldo_tovar', $saldo_tov);
+            $monto_tov = $saldo_tov->pluck('notsaldo');
+
+            return view('user.saldo')
+                ->with('saldo_tovar', $saldo_tov)
+                ->with('monto_tovar', $monto_tov);
             
         }else{
-            return view('user.saldo')->with('saldo_merida', $saldo);
+
+            $monto = $saldo->pluck('notsaldo');
+
+            return view('user.saldo')
+                ->with('saldo_merida', $saldo)
+                ->with('monto', $monto);
         }
     }
 
@@ -74,7 +80,6 @@ class UserOptionsController extends Controller
             } else {
                 return view('user.nopagar');
             }
-            
         } else {
             if ($deuda->first()->notsaldo != 0) {
                 return view('user.pagomerida');
