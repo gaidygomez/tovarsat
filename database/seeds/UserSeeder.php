@@ -15,8 +15,8 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Administrador',
             'email' => 'admin@tovarsat.com.ve',
-            'password' => bcrypt('adminadmin'),
-            'ci' => '19097748',
+            'password' => bcrypt('N3tw0rk1ng.'),
+            'ci' => '302019524',
             'address' => 'MERIDA',
             'role' => 0,
             'email_verified_at' => Carbon::now()
